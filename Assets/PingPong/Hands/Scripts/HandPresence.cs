@@ -24,7 +24,7 @@ public class HandPresence : MonoBehaviour
 
     private void Update()
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float trigger);
+        targetDevice.TryGetFeatureValue(CommonUsages.grip, out float trigger);
         if (trigger > .1f)
             hand.SetFloat("Hold", trigger);
         else
