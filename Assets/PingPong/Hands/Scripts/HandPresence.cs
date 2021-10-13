@@ -10,9 +10,13 @@ public class HandPresence : MonoBehaviour
     private InputDevice targetDevice;
 
     private Animator hand;
+
+    private Transform ball;
     
     private void Start()
     {
+        ball = GameObject.FindGameObjectWithTag("Ball").transform;
+        
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
@@ -26,7 +30,10 @@ public class HandPresence : MonoBehaviour
     {
         targetDevice.TryGetFeatureValue(CommonUsages.grip, out float trigger);
         if (trigger > .1f)
-            hand.SetFloat("Hold", trigger);
+            if (Vector3.Distance(transform.position, ball.position) > .1f)
+                hand.SetFloat("Hold", -trigger);
+            else
+                hand.SetFloat("Hold", trigger);
         else
             hand.SetFloat("Hold", 0f);
     }
