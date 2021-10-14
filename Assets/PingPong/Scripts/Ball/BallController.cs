@@ -20,6 +20,11 @@ public class BallController : MonoBehaviour
             rb.useGravity = true;
             rb.velocity = -other.transform.up * speed * Time.deltaTime;
         }
+
+        if (other.transform.CompareTag("Wall"))
+        {
+            rb.velocity = other.transform.up * speed * Time.deltaTime;
+        }
     }
 
     private enum tags

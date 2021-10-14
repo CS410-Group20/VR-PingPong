@@ -52,6 +52,10 @@ public class HandPresence : MonoBehaviour
 
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
         if (pressed)
+        {
             ball.position = startPos;
+            ball.GetComponent<Rigidbody>().useGravity = false;
+            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }
