@@ -1551,6 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerCharacteristics: 512
+  HAND: 1
 --- !u!1 &1692694433576526092
 GameObject:
   m_ObjectHideFlags: 0
