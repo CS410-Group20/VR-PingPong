@@ -629,7 +629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d60f5a9098697458ba7bc979738196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 420
+  AiSpeed: 420
 --- !u!1 &462746605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1290,7 @@ GameObject:
   - component: {fileID: 1509031161}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1364,13 +1365,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509031160}
-  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.08, y: 1.23, z: 2.565}
+  m_LocalRotation: {x: -0.453874, y: -0, z: -0, w: 0.8910659}
+  m_LocalPosition: {x: -0.08, y: 1.093, z: 2.789}
   m_LocalScale: {x: 0.32515, y: 0.32515, z: 0.32515}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -53.985, y: 0, z: 0}
 --- !u!1 &1532407368
 GameObject:
   m_ObjectHideFlags: 0

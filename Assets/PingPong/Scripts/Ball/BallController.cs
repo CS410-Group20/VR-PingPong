@@ -3,6 +3,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float speed;
+    public float AiSpeed;
 
     private Rigidbody rb;
 
@@ -11,6 +12,9 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Time.timeScale = .7f;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,12 +22,12 @@ public class BallController : MonoBehaviour
         if (other.transform.CompareTag("Hit Area"))
         {
             rb.useGravity = true;
-            rb.velocity = -other.transform.up * speed * Time.deltaTime;
+            rb.velocity = -other.transform.up * speed * Time.fixedDeltaTime;
         }
 
         if (other.transform.CompareTag("Wall"))
         {
-            rb.velocity = other.transform.up * speed * Time.deltaTime;
+            rb.velocity = other.transform.up * AiSpeed * Time.fixedDeltaTime;
         }
     }
 
