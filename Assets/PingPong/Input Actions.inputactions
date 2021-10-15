@@ -1,0 +1,74 @@
+{
+    "name": "Input Actions",
+    "maps": [
+        {
+            "name": "HandVelocity",
+            "id": "46019c95-e573-4906-a2cf-fa12a2142a5f",
+            "actions": [
+                {
+                    "name": "RightController",
+                    "type": "Value",
+                    "id": "568a1b1d-bed5-41e7-9746-ac557981b042",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LeftController",
+                    "type": "Value",
+                    "id": "5bd3d0fa-4eb8-46dd-92ce-d82e1162fc19",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a8305888-a572-46e7-81d9-2b9a15fd0706",
+                    "path": "<OculusTouchController>{RightHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb5ffdd1-116f-48af-b0c1-572d718f6c94",
+                    "path": "<OpenVROculusTouchController>{RightHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ae1e2dc-546e-4c1b-88ec-956dd4d3dd19",
+                    "path": "<OculusTouchController>{RightHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9da58454-9cae-48ce-9bf3-264e8b4e8414",
+                    "path": "<OpenVROculusTouchController>{LeftHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
