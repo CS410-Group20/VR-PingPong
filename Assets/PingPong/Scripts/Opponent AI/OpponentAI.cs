@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class OpponentAI : MonoBehaviour
@@ -6,6 +5,11 @@ public class OpponentAI : MonoBehaviour
     public float speed;
     public float distance;
     public Transform Ball;
+
+    public float leftSideMin;
+    public float leftSideMax;
+    public float rightSideMin;
+    public float rightSideMax;
     
     private void Update()
     {
@@ -17,6 +21,12 @@ public class OpponentAI : MonoBehaviour
             pos.x = Ball.position.x;
             pos.y = Ball.position.y;
             transform.position = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
+
+            bool isLeft = Ball.position.x < -.1f;
+            if (isLeft)
+                transform.rotation = Quaternion.Euler(12.782f, Random.Range(leftSideMin, leftSideMax), -50.415f);
+            else
+                transform.rotation = Quaternion.Euler(12.782f, Random.Range(rightSideMin, rightSideMax), -50.415f);
         }
     }
 }
