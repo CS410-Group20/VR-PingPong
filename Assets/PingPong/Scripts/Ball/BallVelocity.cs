@@ -29,14 +29,6 @@ public class BallVelocity : XRGrabInteractable
         base.ProcessInteractable(updatePhase);
         if (isSelected)
         {
-            if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
-                UpdateSpeed();
         }
-    }
-
-    private void UpdateSpeed()
-    {
-        Vector3 velocity = _controllerVelocity ? _controllerVelocity.velocity : Vector3.zero;
-        _ballController.speed = velocity.z;
     }
 }

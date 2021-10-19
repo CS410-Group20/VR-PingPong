@@ -14,8 +14,9 @@ public class OpponentAI : MonoBehaviour
     private void Update()
     {
         bool isCloseToBall = transform.position.z - Ball.position.z < 1f;
+        bool isBallOutOfBounds = Ball.position.y < .7f;
 
-        if (isCloseToBall)
+        if (isCloseToBall && !isBallOutOfBounds)
         {
             Vector3 pos = transform.position;
             pos.x = Ball.position.x;

@@ -2,18 +2,34 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float speed;
-    public float AiSpeed;
+    public int difficulty = 1;
 
     private Rigidbody rb;
 
     private Vector3 oldPosition;
+    private float speed;
+    private float AiSpeed;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Time.timeScale = .7f;
-        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        if (difficulty == 1)
+        {
+            Time.timeScale = .7f;
+            speed = AiSpeed = 420f;
+        }
+        else if (difficulty == 0)
+        {
+            Time.timeScale = .4f;
+            speed = AiSpeed = 800f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            speed = AiSpeed = 300f;
+        }
+        if (difficulty != 2)
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
     }
 
