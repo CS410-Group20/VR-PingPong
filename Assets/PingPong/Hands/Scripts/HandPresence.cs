@@ -49,13 +49,17 @@ public class HandPresence : MonoBehaviour
                 hand.SetFloat("Hold", trigger);
         else
             hand.SetFloat("Hold", 0f);
-
-        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
-        if (pressed)
-        {
-            ball.position = startPos;
-            ball.GetComponent<Rigidbody>().useGravity = false;
-            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
+        
+        ResetBallPosition();
     }
+
+    private void ResetBallPosition()
+    {
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
+        if (!pressed) return;
+        ball.position = startPos;
+        ball.GetComponent<Rigidbody>().useGravity = false;
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+    
 }
