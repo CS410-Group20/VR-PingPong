@@ -8,6 +8,7 @@ TagManager:
   - Paddle
   - Hit Area
   - Wall
+  - Table
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Post Process
   - 
   - 
   - 

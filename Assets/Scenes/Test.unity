@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d60f5a9098697458ba7bc979738196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 2
+  difficulty: 0
   gravity:
   - -4.5
   - -8.5
@@ -385,6 +385,8 @@ MonoBehaviour:
   - 150
   - 200
   - 250
+  fakeBounce: 30000
+  paddle: {fileID: 543450652806867805}
 --- !u!114 &290716545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,7 +1974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2084303090742764947, guid: d3af808d4b510f94d9c71a3ba303fa85, type: 3}
       propertyPath: m_Mass
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2084303090742764947, guid: d3af808d4b510f94d9c71a3ba303fa85, type: 3}
       propertyPath: m_UseGravity
@@ -2148,6 +2150,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4399833796625489292, guid: 4ba142e80e21a5848aef2189fa5d362c, type: 3}
       propertyPath: m_Name
+      value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678346625915010037, guid: 4ba142e80e21a5848aef2189fa5d362c, type: 3}
+      propertyPath: m_TagString
       value: Table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
