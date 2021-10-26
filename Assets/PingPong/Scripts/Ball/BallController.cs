@@ -52,6 +52,8 @@ public class BallController : MonoBehaviour
             FakeBounce();
         else if (other.transform.CompareTag("Wall"))
             rb.velocity = other.transform.up * aiSpeed * Time.fixedDeltaTime;
+        if (other.transform.CompareTag("Indicator"))
+            other.transform.GetComponent<GameMode1>().ChangePosition();
     }
 
     private enum tags
