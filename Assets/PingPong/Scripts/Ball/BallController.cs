@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private float[] speed;
     [SerializeField] private float fakeBounce;
     [SerializeField] private Transform paddle;
-    [SerializeField] private Animator points;
+    [SerializeField] private Animator pointsAnimator;
     [SerializeField] private PointsCounter pointsCounter;
     
     private Rigidbody rb;
@@ -30,6 +30,12 @@ public class BallController : MonoBehaviour
         playerSpeed = aiSpeed = speed[difficulty];
     }
 
+    private void CalculatePoints()
+    {
+        pointsAnimator.Play("PointsHide", -1, 0f);
+        pointsCounter.StopIncreasing();
+    }
+    
     private void FakeBounce()
     {
         // if (difficulty == 0)
@@ -40,7 +46,7 @@ public class BallController : MonoBehaviour
     {
         if (other.transform.CompareTag("Hit Area"))
         {
-            points.Play("Points", -1, 0f);
+            pointsAnimator.Play("Points", -1, 0f);
                 
             rb.useGravity = true;
             var hitArea = other.transform;
@@ -54,12 +60,15 @@ public class BallController : MonoBehaviour
         else if (other.transform.CompareTag("Wall"))
         {
             rb.velocity = other.transform.up * aiSpeed * Time.fixedDeltaTime;
-            points.Play("PointsHide", -1, 0f);
-            pointsCounter.StopIncreasing();
+            CalculatePoints();
         }
 
         if (other.transform.CompareTag("Indicator"))
+        {
             other.transform.GetComponent<GameMode1>().ChangePosition();
+            pointsCounter.points += 100;
+            pointsCounter.plus100Animation.Play("plus100", -1, 0f);
+        }
     }
 
     private enum tags

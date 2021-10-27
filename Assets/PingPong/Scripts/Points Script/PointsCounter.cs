@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class PointsCounter : MonoBehaviour
 {
+    public int points;
+    public Animator plus100Animation;
+
     [SerializeField] private Text pointsText;
     [SerializeField] private float countSpeed;
-    
-    private int points;
+
     private bool isIncreasing;
     private bool skip;
     
