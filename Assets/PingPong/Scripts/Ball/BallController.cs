@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class BallController : MonoBehaviour
 {
@@ -15,17 +13,13 @@ public class BallController : MonoBehaviour
     private Vector3 oldPosition;
     private float playerSpeed;
     private float aiSpeed;
+    private bool isHitByPlayer;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         CalculateSpeed();
-    }
-
-    private void Update()
-    {
-        print(paddle.transform.localRotation);
     }
 
     private void CalculateSpeed()
@@ -37,14 +31,16 @@ public class BallController : MonoBehaviour
 
     private void FakeBounce()
     {
-        if (difficulty == 0)
-            rb.AddForce(0f, fakeBounce, 0f);
+        // if (difficulty == 0)
+        //     rb.AddForce(0f, fakeBounce, 0f);
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Hit Area"))
         {
+            points.Play("Points", -1, 0f);
+                
             rb.useGravity = true;
             var hitArea = other.transform;
             rb.velocity = -hitArea.up * playerSpeed * Time.fixedDeltaTime;
@@ -52,7 +48,11 @@ public class BallController : MonoBehaviour
         else if (other.transform.CompareTag("Table"))
             FakeBounce();
         else if (other.transform.CompareTag("Wall"))
+        {
             rb.velocity = other.transform.up * aiSpeed * Time.fixedDeltaTime;
+            points.Play("PointsHide", -1, 0f);
+        }
+
         if (other.transform.CompareTag("Indicator"))
             other.transform.GetComponent<GameMode1>().ChangePosition();
     }
