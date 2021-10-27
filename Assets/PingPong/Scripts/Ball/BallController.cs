@@ -8,7 +8,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float[] gravity;
     [SerializeField] private float[] speed;
     [SerializeField] private float fakeBounce;
-    [SerializeField] Transform paddle;
+    [SerializeField] private Transform paddle;
+    [SerializeField] private Animator points;
     
     private Rigidbody rb;
     private Vector3 oldPosition;
