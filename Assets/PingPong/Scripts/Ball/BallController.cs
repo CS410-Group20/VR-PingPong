@@ -32,7 +32,7 @@ public class BallController : MonoBehaviour
 
     private void CalculatePoints()
     {
-        pointsAnimator.Play("PointsHide", -1, 0f);
+        //pointsAnimator.Play("PointsHide", -1, 0f);
         pointsCounter.StopIncreasing();
     }
     
@@ -46,7 +46,7 @@ public class BallController : MonoBehaviour
     {
         if (other.transform.CompareTag("Hit Area"))
         {
-            pointsAnimator.Play("Points", -1, 0f);
+            //pointsAnimator.Play("Points", -1, 0f);
                 
             rb.useGravity = true;
             var hitArea = other.transform;
