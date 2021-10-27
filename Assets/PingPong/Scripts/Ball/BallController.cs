@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private float fakeBounce;
     [SerializeField] private Transform paddle;
     [SerializeField] private Animator points;
+    [SerializeField] private PointsCounter pointsCounter;
     
     private Rigidbody rb;
     private Vector3 oldPosition;
@@ -44,13 +45,17 @@ public class BallController : MonoBehaviour
             rb.useGravity = true;
             var hitArea = other.transform;
             rb.velocity = -hitArea.up * playerSpeed * Time.fixedDeltaTime;
+            pointsCounter.IncreasePoints();
         }
         else if (other.transform.CompareTag("Table"))
+        {
             FakeBounce();
+        }
         else if (other.transform.CompareTag("Wall"))
         {
             rb.velocity = other.transform.up * aiSpeed * Time.fixedDeltaTime;
             points.Play("PointsHide", -1, 0f);
+            pointsCounter.StopIncreasing();
         }
 
         if (other.transform.CompareTag("Indicator"))

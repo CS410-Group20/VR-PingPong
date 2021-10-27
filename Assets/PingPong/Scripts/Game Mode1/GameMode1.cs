@@ -1,9 +1,5 @@
-using Unity.XR.Oculus.Input;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.XR.Interaction.Toolkit;
 using Random = UnityEngine.Random;
-using XRController = UnityEngine.InputSystem.XR.XRController;
 
 public class GameMode1 : MonoBehaviour
 {
