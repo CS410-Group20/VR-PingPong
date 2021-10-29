@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -15,6 +16,8 @@ public class BallController : MonoBehaviour
     private float playerSpeed;
     private float aiSpeed;
     private bool isHitByPlayer;
+    private Quaternion paddleRotation;
+    private Vector3 positionAtHit;
     
     private void Start()
     {
@@ -38,29 +41,39 @@ public class BallController : MonoBehaviour
     
     private void FakeBounce()
     {
-        // if (difficulty == 0)
-        //     rb.AddForce(0f, fakeBounce, 0f);
+        if (difficulty == 0)
+        {
+            Vector3 dir = (transform.position - positionAtHit).normalized;
+            
+            rb.velocity = transform.up + dir * fakeBounce * Time.deltaTime;
+        }
     }
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Table"))
+            FakeBounce();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Hit Area"))
         {
             //pointsAnimator.Play("Points", -1, 0f);
-                
+
+            positionAtHit = transform.position;
+            
             rb.useGravity = true;
             var hitArea = other.transform;
             rb.velocity = -hitArea.up * playerSpeed * Time.fixedDeltaTime;
             pointsCounter.IncreasePoints();
         }
-        else if (other.transform.CompareTag("Table"))
-        {
-            FakeBounce();
-        }
         else if (other.transform.CompareTag("Wall"))
         {
             rb.velocity = other.transform.up * aiSpeed * Time.fixedDeltaTime;
             CalculatePoints();
+            
+            positionAtHit = transform.position;
         }
 
         if (other.transform.CompareTag("Indicator"))

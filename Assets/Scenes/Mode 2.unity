@@ -523,7 +523,7 @@ MonoBehaviour:
   - 150
   - 200
   - 250
-  fakeBounce: 30000
+  fakeBounce: 100
   paddle: {fileID: 543450652806867805}
   pointsAnimator: {fileID: 1740802184}
   pointsCounter: {fileID: 1730904879}
