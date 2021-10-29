@@ -65,7 +65,10 @@ public class BallController : MonoBehaviour
 
         if (other.transform.CompareTag("Indicator"))
         {
-            other.transform.GetComponent<GameMode1>().ChangePosition();
+            if (other.transform.GetComponent<GameMode1>())
+                other.transform.GetComponent<GameMode1>().ChangePosition();
+            else
+                other.transform.GetComponent<GameMode2>().ChangePosition();
             pointsCounter.points += 100;
             pointsCounter.plus100Animation.Play("plus100", -1, 0f);
         }
