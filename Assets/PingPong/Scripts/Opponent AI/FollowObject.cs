@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-    public Transform followObject;
+    [SerializeField] private Transform followObject;
 
-    public float speed = 10f;
+    [SerializeField] private float speed = 10f;
     
     private void Update()
     {
