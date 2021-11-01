@@ -60,6 +60,16 @@ public class BallController : MonoBehaviour
     {
         if (other.transform.CompareTag("Table"))
             FakeBounce();
+        else if (other.transform.CompareTag("Net"))
+            ResetGame();
+    }
+
+    private void ResetGame()
+    {
+        
+        bringBackBall = true;
+        pressA.SetActive(true);
+        CalculatePoints();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,11 +94,7 @@ public class BallController : MonoBehaviour
         }
 
         if (other.transform.CompareTag("Bounds"))
-        {
-            bringBackBall = true;
-            pressA.SetActive(true);
-            CalculatePoints();
-        }
+            ResetGame();
 
         if (other.transform.CompareTag("Indicator"))
         {

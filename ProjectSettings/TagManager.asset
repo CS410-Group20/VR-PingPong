@@ -11,6 +11,7 @@ TagManager:
   - Table
   - Indicator
   - Bounds
+  - Net
   layers:
   - Default
   - TransparentFX
