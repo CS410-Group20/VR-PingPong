@@ -7,7 +7,7 @@ public class HandPresence : MonoBehaviour
 {
     public InputDeviceCharacteristics controllerCharacteristics;
     public int HAND;
-    
+   
     private InputDevice targetDevice;
     private Animator hand;
     private Transform ball;
@@ -35,17 +35,7 @@ public class HandPresence : MonoBehaviour
     {
         targetDevice.TryGetFeatureValue(CommonUsages.grip, out float trigger);
         if (trigger > .1f)
-            if (Vector3.Distance(transform.position, ball.position) > .1f)
-            {
-                hand.SetFloat("Hold", -trigger);
-                
-                if (HAND == LEFT)
-                    ball.GetComponent<XRGrabInteractable>().attachTransform = ball.transform.GetChild(1);
-                else if (HAND == RIGHT)
-                    ball.GetComponent<XRGrabInteractable>().attachTransform = ball.transform.GetChild(0);
-            }
-            else
-                hand.SetFloat("Hold", trigger);
+            hand.SetFloat("Hold", -trigger);
         else
             hand.SetFloat("Hold", 0f);
         
@@ -54,11 +44,16 @@ public class HandPresence : MonoBehaviour
 
     private void ResetBallPosition()
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
-        if (!pressed) return;
-        ball.position = startPos;
-        ball.GetComponent<Rigidbody>().useGravity = false;
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        if (ball.GetComponent<BallController>().bringBackBall)
+        {
+            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
+            if (!pressed) return;
+            ball.position = startPos;
+            ball.GetComponent<Rigidbody>().useGravity = false;
+            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            ball.GetComponent<BallController>().bringBackBall = false;
+            ball.GetComponent<BallController>().pressA.SetActive(false);
+        }
     }
     
 }

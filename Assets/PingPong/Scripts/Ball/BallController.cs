@@ -1,8 +1,12 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public bool bringBackBall;
+    public GameObject pressA;
+
     [SerializeField] private int difficulty = 1;
     [SerializeField] private float[] gravity;
     [SerializeField] private float[] speed;
@@ -10,7 +14,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private Transform paddle;
     [SerializeField] private Animator pointsAnimator;
     [SerializeField] private PointsCounter pointsCounter;
-    
+
     private Rigidbody rb;
     private Vector3 oldPosition;
     private float playerSpeed;
@@ -18,11 +22,14 @@ public class BallController : MonoBehaviour
     private bool isHitByPlayer;
     private Quaternion paddleRotation;
     private Vector3 positionAtHit;
-    
+    private Vector3 ballStartPosition;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
+        ballStartPosition = transform.position;
+        
         CalculateSpeed();
     }
 
@@ -74,6 +81,13 @@ public class BallController : MonoBehaviour
             CalculatePoints();
             
             positionAtHit = transform.position;
+        }
+
+        if (other.transform.CompareTag("Bounds"))
+        {
+            bringBackBall = true;
+            pressA.SetActive(true);
+            CalculatePoints();
         }
 
         if (other.transform.CompareTag("Indicator"))
