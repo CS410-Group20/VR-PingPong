@@ -12,11 +12,12 @@ TagManager:
   - Indicator
   - Bounds
   - Net
+  - UI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grab
   - Water
   - UI
   - Post Process
