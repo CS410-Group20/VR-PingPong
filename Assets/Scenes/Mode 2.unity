@@ -616,24 +616,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298689488}
   m_Mesh: {fileID: 4493585093827132993, guid: 0b16432666e3587418c88efc38e0c3fd, type: 3}
---- !u!1 &317223764 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3077352493808375977, guid: 6272a91957dad3448b21b79596d3e3da, type: 3}
-  m_PrefabInstance: {fileID: 3077352494057401341}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &317223765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317223764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 279902276823e8848950857d71271f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerUI: {fileID: 1240455309}
 --- !u!1 &508022419
 GameObject:
   m_ObjectHideFlags: 0
@@ -22207,6 +22189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer
       objectReference: {fileID: 0}
+    - target: {fileID: 6717225155378417944, guid: 6272a91957dad3448b21b79596d3e3da, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 1240455309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6272a91957dad3448b21b79596d3e3da, type: 3}
 --- !u!23 &3078508891039845780

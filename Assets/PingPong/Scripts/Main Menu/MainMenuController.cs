@@ -7,9 +7,11 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private InputDeviceCharacteristics controllerCharacteristics;
     [SerializeField] private float[] locations;
+    [SerializeField] private SelectGameModes selectGameModes;
     
     private InputDevice targetDevice;
     private RectTransform activeRectTransform;
+    private bool menuOpen;
 
     private void Start()
     {
@@ -36,6 +38,20 @@ public class MainMenuController : MonoBehaviour
         activeRectTransform = null;
     }
 
+    private void ChangeScene(string sceneName)
+    {
+        if (!menuOpen)
+        {
+            selectGameModes.OpenGameModesMenu();
+            menuOpen = true;
+        }
+        else
+        {
+            selectGameModes.CloseGameModesMenu();
+            menuOpen = false;
+        }
+    }
+
     private void Update()
     {
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
@@ -48,11 +64,7 @@ public class MainMenuController : MonoBehaviour
                 Application.Quit();
             else if (activeRectTransform.name == "4")
                 ChangeScene("Tutorial");
+            activeRectTransform = null;
         }
-    }
-
-    private void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
     }
 }
