@@ -38,7 +38,7 @@ public class MainMenuController : MonoBehaviour
         activeRectTransform = null;
     }
 
-    private void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName)
     {
         if (sceneName == "Play")
         {
@@ -55,19 +55,19 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
-        if (!pressed) return;
-        if (activeRectTransform)
-        {
-            if (activeRectTransform.name == "0")
-                ChangeScene("Play");
-            else if (activeRectTransform.name == "2")
-                Application.Quit();
-            else if (activeRectTransform.name == "4")
-                ChangeScene("Tutorial");
-            activeRectTransform = null;
-        }
-    }
+    // private void Update()
+    // {
+    //     targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
+    //     if (!pressed) return;
+    //     if (activeRectTransform)
+    //     {
+    //         if (activeRectTransform.name == "0")
+    //             ChangeScene("Play");
+    //         else if (activeRectTransform.name == "2")
+    //             Application.Quit();
+    //         else if (activeRectTransform.name == "4")
+    //             ChangeScene("Tutorial");
+    //         activeRectTransform = null;
+    //     }
+    // }
 }

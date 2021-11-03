@@ -16,6 +16,7 @@ public class TimerController : MonoBehaviour
     [SerializeField] private int timer = 90;
     [SerializeField] private GameObject continueText;
     [SerializeField] private Animator image;
+    [SerializeField] private SetHighScore setHighScore;
     
     private InputDevice targetDevice;
     
@@ -52,6 +53,7 @@ public class TimerController : MonoBehaviour
         endGameUI.SetActive(true);
         ball.SetActive(false);
         StartCoroutine(Delay());
+        setHighScore.CheckScore(pointsCounter.points);
     }
 
     private void Update()

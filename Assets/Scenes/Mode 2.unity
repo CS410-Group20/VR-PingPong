@@ -805,6 +805,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 452883654568041886, guid: a66c7358c56edf94b8101c98fb8cf909, type: 3}
   m_PrefabInstance: {fileID: 598326536}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &598326539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 452883653825421795, guid: a66c7358c56edf94b8101c98fb8cf909, type: 3}
+  m_PrefabInstance: {fileID: 598326536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &634185326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6344845388468709958, guid: acae90016da206d47a4113a233c69346, type: 3}
@@ -1391,6 +1402,52 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8232669915451349898, guid: 15661994c40449b45960d7e98d706e19, type: 3}
   m_PrefabInstance: {fileID: 951482897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &959579441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959579442}
+  - component: {fileID: 959579443}
+  m_Layer: 0
+  m_Name: Set Difficulty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &959579442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959579441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20114946, y: 0.81726813, z: 0.61191344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &959579443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959579441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc065098d050b4459912796ec814f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 0}
+  controllerCharacteristics: 0
+  ballController: {fileID: 290716544}
 --- !u!1 &1019157142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6513,7 +6570,7 @@ MonoBehaviour:
   plus100Animation: {fileID: 704469952}
   pointsText: {fileID: 44702939}
   countSpeed: 0.1
-  finalPointsText: {fileID: 0}
+  finalPointsText: {fileID: 598326539}
 --- !u!1 &1740802179
 GameObject:
   m_ObjectHideFlags: 0
@@ -6665,6 +6722,50 @@ Transform:
   m_Father: {fileID: 1303495478}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1965174533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965174534}
+  - component: {fileID: 1965174535}
+  m_Layer: 0
+  m_Name: Set High Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965174534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965174533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8357698, y: 1.0842075, z: 0.6920326}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1965174535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965174533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b39f26c7c9288c49822680ed7c5e6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMode: 1
 --- !u!1 &1967743587
 GameObject:
   m_ObjectHideFlags: 0
@@ -22247,6 +22348,10 @@ PrefabInstance:
       propertyPath: continueText
       value: 
       objectReference: {fileID: 598326538}
+    - target: {fileID: 6717225155378417944, guid: 6272a91957dad3448b21b79596d3e3da, type: 3}
+      propertyPath: setHighScore
+      value: 
+      objectReference: {fileID: 1965174535}
     - target: {fileID: 6717225155378417944, guid: 6272a91957dad3448b21b79596d3e3da, type: 3}
       propertyPath: pointsCounter
       value: 
