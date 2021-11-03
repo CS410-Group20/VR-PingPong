@@ -16,18 +16,15 @@ public class SelectGameModes : MonoBehaviour
     [SerializeField] private Animator image;
 
     private InputDevice targetDevice;
-    private GameObject activeUI;
 
-    public void HoverOverMode(GameObject button)
+    public void HoverOverMode(Outline button)
     {
-        LeanTween.moveLocalZ(button, -140f, 10f * Time.deltaTime).setEaseInQuad();
-        activeUI = button;
+        button.effectColor = Color.gray;
     }
 
-    public void HoverExitMode(GameObject button)
+    public void HoverExitMode(Outline button)
     {
-        LeanTween.moveLocalZ(button, 0f, 10f * Time.deltaTime).setEaseInQuad();
-        activeUI = button;
+        button.effectColor = Color.white;
     }
     
     public void OpenGameModesMenu()
