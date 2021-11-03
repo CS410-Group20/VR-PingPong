@@ -6,8 +6,8 @@ public class BallController : MonoBehaviour
 {
     public bool bringBackBall;
     public GameObject pressA;
+    public int difficulty = 1;
 
-    [SerializeField] private int difficulty = 1;
     [SerializeField] private float[] gravity;
     [SerializeField] private float[] speed;
     [SerializeField] private float fakeBounce;
@@ -66,7 +66,7 @@ public class BallController : MonoBehaviour
 
     private void ResetGame()
     {
-        
+        rb.velocity = Vector3.zero;
         bringBackBall = true;
         pressA.SetActive(true);
         CalculatePoints();
