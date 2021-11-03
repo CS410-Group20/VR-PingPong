@@ -1,58 +1,58 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class MainMenuController : MonoBehaviour
 {
-    public void HoverOverPlay(RectTransform ui)
+    [SerializeField] private InputDeviceCharacteristics controllerCharacteristics;
+    [SerializeField] private float[] locations;
+    
+    private InputDevice targetDevice;
+    private RectTransform activeRectTransform;
+
+    private void Start()
     {
-        LeanTween.moveLocalZ(ui.gameObject, 1f, 10f * Time.deltaTime).setEaseInOutBack();
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+        
+        if (devices.Count > 0)
+            targetDevice = devices[0];
     }
 
-    public void HoverExitPlay(RectTransform ui)
+    public void HoverOver(RectTransform ui)
     {
-        LeanTween.moveLocalZ(ui.gameObject, 2.9f, 10f * Time.deltaTime).setEaseInOutBack();
-    }
-    
-    
-    public void HoverOverQuit(RectTransform ui)
-    {
-        LeanTween.moveLocalZ(ui.gameObject, 21f, 10f * Time.deltaTime).setEaseInOutBack();
+        int num;
+        int.TryParse(ui.name, out num);
+        LeanTween.moveLocalZ(ui.gameObject, locations[num], 10f * Time.deltaTime).setEaseInOutBack();
+        activeRectTransform = ui;
     }
 
-    public void HoverExitQuit(RectTransform ui)
+    public void HoverExit(RectTransform ui)
     {
-        LeanTween.moveLocalZ(ui.gameObject, 23f, 10f * Time.deltaTime).setEaseInOutBack();
-    }
-    
-    
-    public void HoverOverTutorial(RectTransform ui)
-    {
-        LeanTween.moveLocalZ(ui.gameObject, 13f, 10f * Time.deltaTime).setEaseInOutBack();
+        int num;
+        int.TryParse(ui.name, out num);
+        LeanTween.moveLocalZ(ui.gameObject, locations[num + 1], 10f * Time.deltaTime).setEaseInOutBack();
+        activeRectTransform = null;
     }
 
-    public void HoverExitTutorial(RectTransform ui)
+    private void Update()
     {
-        LeanTween.moveLocalZ(ui.gameObject, 15.7f, 10f * Time.deltaTime).setEaseInOutBack();
-    }
-    
-    
-    public void HoverOverLoop(RectTransform ui)
-    {
-        LeanTween.moveLocalZ(ui.gameObject, 33f, 10f * Time.deltaTime).setEaseInOutBack();
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
+        if (!pressed) return;
+        if (activeRectTransform)
+        {
+            if (activeRectTransform.name == "0")
+                ChangeScene("Play");
+            else if (activeRectTransform.name == "2")
+                Application.Quit();
+            else if (activeRectTransform.name == "4")
+                ChangeScene("Tutorial");
+        }
     }
 
-    public void HoverExitLoop(RectTransform ui)
+    private void ChangeScene(string sceneName)
     {
-        LeanTween.moveLocalZ(ui.gameObject, 34.4f, 10f * Time.deltaTime).setEaseInOutBack();
-    }
-    //
-    //
-    //
-    //
-
-    public void Play()
-    {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -9220,7 +9220,7 @@ GameObject:
   - component: {fileID: 275893414}
   - component: {fileID: 275893416}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: 2
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9316,7 +9316,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverOverQuit
+        m_MethodName: HoverOver
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 275893410}
@@ -9331,7 +9331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverExitQuit
+        m_MethodName: HoverExit
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 275893410}
@@ -40332,7 +40332,7 @@ GameObject:
   - component: {fileID: 1407177355}
   - component: {fileID: 1407177354}
   m_Layer: 5
-  m_Name: Play
+  m_Name: 0
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40441,7 +40441,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverOverPlay
+        m_MethodName: HoverOver
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1407177351}
@@ -40456,7 +40456,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverExitPlay
+        m_MethodName: HoverExit
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1407177351}
@@ -61206,7 +61206,7 @@ GameObject:
   - component: {fileID: 2056283145}
   - component: {fileID: 2056283147}
   m_Layer: 5
-  m_Name: Loop
+  m_Name: 6
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61302,7 +61302,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverOverLoop
+        m_MethodName: HoverOver
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2056283141}
@@ -61317,7 +61317,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverExitLoop
+        m_MethodName: HoverExit
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2056283141}
@@ -84628,7 +84628,7 @@ GameObject:
   - component: {fileID: 5860382255575392604}
   - component: {fileID: 5860382255575392606}
   m_Layer: 5
-  m_Name: Tutorial
+  m_Name: 4
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84663,7 +84663,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverOverTutorial
+        m_MethodName: HoverOver
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5860382255575392601}
@@ -84678,7 +84678,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5860382255837549238}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: HoverExitTutorial
+        m_MethodName: HoverExit
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5860382255575392601}
@@ -84881,6 +84881,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471dbadea1be62458cdad7fe80a4959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerCharacteristics: 512
+  locations:
+  - 1
+  - 2.9
+  - 21
+  - 23
+  - 13
+  - 15.7
+  - 33
+  - 34.4
 --- !u!114 &5860382255837549239
 MonoBehaviour:
   m_ObjectHideFlags: 0
