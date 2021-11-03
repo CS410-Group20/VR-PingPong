@@ -10,10 +10,11 @@ public class SetDifficulty : MonoBehaviour
     [SerializeField] private BallController ballController;
     
     private InputDevice targetDevice;
-    
+
     public void ChangeValue()
     {
         PlayerPrefs.SetString("Difficulty", group.ActiveToggles().FirstOrDefault()?.gameObject.name);
+        print(group.ActiveToggles().FirstOrDefault()?.gameObject.name);
     }
 
     private void Awake()

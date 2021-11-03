@@ -15,6 +15,8 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetString("Difficulty", "Easy");
+        
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
         

@@ -87918,6 +87918,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   group: {fileID: 740746316}
+  toggles:
+  - {fileID: 390091024}
+  - {fileID: 1147024547}
+  - {fileID: 823469209}
   controllerCharacteristics: 768
   ballController: {fileID: 0}
 --- !u!33 &5866194485019534122
