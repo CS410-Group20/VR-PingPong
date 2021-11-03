@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR;
 using System.Collections.Generic;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandPresence : MonoBehaviour
 {
@@ -14,13 +13,13 @@ public class HandPresence : MonoBehaviour
     private int LEFT = 0;
     private int RIGHT = 1;
 
-    private Vector3 startPos;
+    private Vector3 enemyPos;
     
     private void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball").transform;
 
-        startPos = ball.position;
+        enemyPos = GameObject.FindGameObjectWithTag("Wall").transform.position;
         
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
@@ -48,8 +47,8 @@ public class HandPresence : MonoBehaviour
         {
             targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
             if (!pressed) return;
-            ball.position = startPos;
-            ball.GetComponent<Rigidbody>().useGravity = false;
+            ball.position = enemyPos;
+            ball.GetComponent<Rigidbody>().useGravity = true;
             ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             ball.GetComponent<BallController>().bringBackBall = false;
             ball.GetComponent<BallController>().pressA.SetActive(false);

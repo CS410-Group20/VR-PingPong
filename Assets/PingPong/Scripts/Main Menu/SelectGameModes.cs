@@ -67,26 +67,15 @@ public class SelectGameModes : MonoBehaviour
             targetDevice = devices[0];
     }
 
-    private void ChangeScene(string name)
+    public void ChangeScene(string name)
     {
         image.Play("Fade In Image", -1, 0f);
-        StartCoroutine(OpenScene(name));
+        StartCoroutine(OpenScene("Mode " + name));
     }
 
     private IEnumerator OpenScene(string name)
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(name);
-    }
-    
-    private void Update()
-    {
-        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
-        if (!pressed) return;
-        if (activeUI)
-        {
-            ChangeScene("Mode " + activeUI.name);
-            activeUI = null;
-        }
     }
 }
