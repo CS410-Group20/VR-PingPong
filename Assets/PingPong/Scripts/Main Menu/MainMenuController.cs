@@ -40,15 +40,18 @@ public class MainMenuController : MonoBehaviour
 
     private void ChangeScene(string sceneName)
     {
-        if (!menuOpen)
+        if (sceneName == "Play")
         {
-            selectGameModes.OpenGameModesMenu();
-            menuOpen = true;
-        }
-        else
-        {
-            selectGameModes.CloseGameModesMenu();
-            menuOpen = false;
+            if (!menuOpen)
+            {
+                selectGameModes.OpenGameModesMenu();
+                menuOpen = true;
+            }
+            else
+            {
+                selectGameModes.CloseGameModesMenu();
+                menuOpen = false;
+            }
         }
     }
 
