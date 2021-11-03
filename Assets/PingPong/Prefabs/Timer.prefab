@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.054, y: 0}
-  m_SizeDelta: {x: 482.3, y: 173.933}
+  m_AnchoredPosition: {x: 0.157, y: 0.4}
+  m_SizeDelta: {x: 511.14, y: 261.434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3077352493120484211
 CanvasRenderer:
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 109
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 3077352493808375973}
   - component: {fileID: 3077352493808375978}
   - component: {fileID: 3077352493808375979}
-  - component: {fileID: 3077352493808375976}
   - component: {fileID: 6717225155378417944}
+  - component: {fileID: 6140433041732684718}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -197,25 +197,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &3077352493808375976
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3077352493808375977}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1b1aa0a7d7de7d468c0a936fdba120f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6717225155378417944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +210,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerUI: {fileID: 3077352493120484208}
+  opponentAI: {fileID: 0}
+  pointsCounter: {fileID: 0}
+  endGameUI: {fileID: 0}
+--- !u!95 &6140433041732684718
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077352493808375977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c73e831d8ccebac4eb3702f63bea92e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

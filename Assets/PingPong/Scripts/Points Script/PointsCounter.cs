@@ -9,6 +9,7 @@ public class PointsCounter : MonoBehaviour
 
     [SerializeField] private Text pointsText;
     [SerializeField] private float countSpeed;
+    [SerializeField] private Text finalPointsText;
 
     private bool isIncreasing;
     private bool skip;
@@ -37,6 +38,7 @@ public class PointsCounter : MonoBehaviour
         yield return new WaitForSeconds(countSpeed);
         points++;
         pointsText.text = points.ToString();
+        finalPointsText.text = points.ToString();
         skip = false;
     }
 }
