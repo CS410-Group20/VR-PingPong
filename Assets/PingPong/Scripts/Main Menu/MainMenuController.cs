@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
@@ -8,20 +8,13 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private InputDeviceCharacteristics controllerCharacteristics;
     [SerializeField] private float[] locations;
     [SerializeField] private SelectGameModes selectGameModes;
+    [SerializeField] private Animator fadingImage;
     
-    private InputDevice targetDevice;
-    private RectTransform activeRectTransform;
     private bool menuOpen;
 
     private void Start()
     {
         PlayerPrefs.SetString("Difficulty", "Easy");
-        
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
-        
-        if (devices.Count > 0)
-            targetDevice = devices[0];
     }
 
     public void HoverOver(RectTransform ui)
@@ -29,7 +22,6 @@ public class MainMenuController : MonoBehaviour
         int num;
         int.TryParse(ui.name, out num);
         LeanTween.moveLocalZ(ui.gameObject, locations[num], 10f * Time.deltaTime).setEaseInOutBack();
-        activeRectTransform = ui;
     }
 
     public void HoverExit(RectTransform ui)
@@ -37,39 +29,54 @@ public class MainMenuController : MonoBehaviour
         int num;
         int.TryParse(ui.name, out num);
         LeanTween.moveLocalZ(ui.gameObject, locations[num + 1], 10f * Time.deltaTime).setEaseInOutBack();
-        activeRectTransform = null;
     }
 
     public void ChangeScene(string sceneName)
     {
-        if (sceneName == "Play")
+        if (PlayerPrefs.GetInt("Completed Tutorial") == 0)
         {
-            if (!menuOpen)
+            if (sceneName == "Play")
             {
-                selectGameModes.OpenGameModesMenu();
-                menuOpen = true;
-            }
-            else
-            {
-                selectGameModes.CloseGameModesMenu();
-                menuOpen = false;
+                if (!menuOpen)
+                {
+                    selectGameModes.OpenGameModesMenu();
+                    menuOpen = true;
+                }
+                else
+                {
+                    selectGameModes.CloseGameModesMenu();
+                    menuOpen = false;
+                }
             }
         }
+        else
+            OpenScene();
     }
 
-    // private void Update()
-    // {
-    //     targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
-    //     if (!pressed) return;
-    //     if (activeRectTransform)
-    //     {
-    //         if (activeRectTransform.name == "0")
-    //             ChangeScene("Play");
-    //         else if (activeRectTransform.name == "2")
-    //             Application.Quit();
-    //         else if (activeRectTransform.name == "4")
-    //             ChangeScene("Tutorial");
-    //         activeRectTransform = null;
-    //     }
-    // }
+    private void OpenScene()
+    {
+        fadingImage.Play("Fade In Image", -1, 0f);
+        StartCoroutine(LoadScene());
+    }
+
+    private IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void OpenItchPage()
+    {
+        Application.OpenURL("https://loopinteractive.itch.io/");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Tutorial()
+    {
+        OpenScene();
+    }
 }
