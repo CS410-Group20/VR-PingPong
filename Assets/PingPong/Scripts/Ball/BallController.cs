@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
@@ -69,7 +70,8 @@ public class BallController : MonoBehaviour
         rb.velocity = Vector3.zero;
         bringBackBall = true;
         pressA.SetActive(true);
-        CalculatePoints();
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+            CalculatePoints();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,7 +85,8 @@ public class BallController : MonoBehaviour
             rb.useGravity = true;
             var hitArea = other.transform;
             rb.velocity = -hitArea.up * playerSpeed * Time.fixedDeltaTime;
-            pointsCounter.IncreasePoints();
+            if (SceneManager.GetActiveScene().name != "Tutorial")
+                pointsCounter.IncreasePoints();
         }
         else if (other.transform.CompareTag("Wall"))
         {
@@ -96,7 +99,7 @@ public class BallController : MonoBehaviour
         if (other.transform.CompareTag("Bounds"))
             ResetGame();
 
-        if (other.transform.CompareTag("Indicator"))
+        if (other.transform.CompareTag("Indicator") && SceneManager.GetActiveScene().name != "Tutorial")
         {
             if (other.transform.GetComponent<GameMode1>())
                 other.transform.GetComponent<GameMode1>().ChangePosition();
