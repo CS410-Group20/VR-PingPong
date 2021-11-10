@@ -49,7 +49,7 @@ public class TutorialBall : MonoBehaviour
             }
             else
             {
-                goodJob.transform.GetChild(0).GetComponent<Text>().text = "Press Right Thumbstick To Exit";
+                goodJob.transform.GetChild(0).GetComponent<Text>().text = "Press (B) To Exit";
                 PlayerPrefs.SetInt("Tutorial Done", 1);
             }
 

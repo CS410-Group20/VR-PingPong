@@ -79,7 +79,7 @@ public class TimerController : MonoBehaviour
     private IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Start Menu");
     }
     
 
