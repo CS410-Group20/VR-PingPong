@@ -24,6 +24,7 @@ public class BallController : MonoBehaviour
     private Quaternion paddleRotation;
     private Vector3 positionAtHit;
     private Vector3 ballStartPosition;
+    private bool hitFromPlayer;
 
     private void Start()
     {   
@@ -87,6 +88,8 @@ public class BallController : MonoBehaviour
             rb.velocity = -hitArea.up * playerSpeed * Time.fixedDeltaTime;
             if (SceneManager.GetActiveScene().name != "Tutorial")
                 pointsCounter.IncreasePoints();
+
+            hitFromPlayer = true;
         }
         else if (other.transform.CompareTag("Wall"))
         {
@@ -94,12 +97,14 @@ public class BallController : MonoBehaviour
             CalculatePoints();
             
             positionAtHit = transform.position;
+
+            hitFromPlayer = false;
         }
 
         if (other.transform.CompareTag("Bounds"))
             ResetGame();
 
-        if (other.transform.CompareTag("Indicator") && SceneManager.GetActiveScene().name != "Tutorial")
+        if (other.transform.CompareTag("Indicator") && SceneManager.GetActiveScene().name != "Tutorial" && hitFromPlayer)
         {
             if (other.transform.GetComponent<GameMode1>())
                 other.transform.GetComponent<GameMode1>().ChangePosition();
