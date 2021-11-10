@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
-public class ExitTutorial : MonoBehaviour
+public class ExitGame : MonoBehaviour
 {
     [SerializeField] private InputDeviceCharacteristics controllerCharacteristics;
-    [SerializeField] private TutorialBall tutorialBall;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Animator image;
     
+    
     private InputDevice targetDevice;
-
+    
     private void Start()
     {
         List<InputDevice> devices = new List<InputDevice>();
@@ -23,9 +24,13 @@ public class ExitTutorial : MonoBehaviour
 
     private void Update()
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool pressed);
-        if (!pressed || tutorialBall.tutorialLevel < 2) return;
-        ChangeScene();
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed);
+        if (!pressed) return;
+        if (pauseMenu.activeInHierarchy)
+        {
+            Time.timeScale = 1f;
+            ChangeScene();
+        }
     }
 
     private void ChangeScene()

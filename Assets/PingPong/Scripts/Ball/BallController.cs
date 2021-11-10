@@ -26,7 +26,7 @@ public class BallController : MonoBehaviour
     private Vector3 ballStartPosition;
 
     private void Start()
-    {
+    {   
         rb = GetComponent<Rigidbody>();
 
         ballStartPosition = transform.position;

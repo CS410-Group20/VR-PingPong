@@ -88147,7 +88147,7 @@ MonoBehaviour:
   - 33
   - 34.4
   selectGameModes: {fileID: 1407177357}
-  fadingImage: {fileID: 0}
+  fadingImage: {fileID: 1324410647}
 --- !u!114 &5860382255837549239
 MonoBehaviour:
   m_ObjectHideFlags: 0
