@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Loop Interactive.unity
+    guid: 686c7bc06ba0834469efb5f65c313abe
+  - enabled: 1
     path: Assets/Scenes/Start Menu.unity
     guid: 4e053fa67b4fa0a40a0fe08ba86a95aa
   - enabled: 1
