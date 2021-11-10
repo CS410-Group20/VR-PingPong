@@ -33,7 +33,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        if (PlayerPrefs.GetInt("Completed Tutorial") == 0)
+        if (PlayerPrefs.GetInt("Tutorial Done") == 1)
         {
             if (sceneName == "Play")
             {
