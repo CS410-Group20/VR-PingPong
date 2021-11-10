@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 4e053fa67b4fa0a40a0fe08ba86a95aa
   - enabled: 1
+    path: Assets/Scenes/Calibration.unity
+    guid: 120fa782f8974a84b8a3bc9ab621279f
+  - enabled: 1
     path: Assets/Scenes/Mode 1.unity
     guid: 990f3884995897c4ea8903d18e14dfac
   - enabled: 1
@@ -23,3 +26,4 @@ EditorBuildSettings:
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 916eefddf8f4d5b4b92c19063ca1b00f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 56a8611c10565d34f896c9d9164aa55a, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b2835c88a97323447bebbb156dae8ca5, type: 2}

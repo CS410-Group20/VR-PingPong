@@ -10,8 +10,6 @@ public class HandPresence : MonoBehaviour
     private InputDevice targetDevice;
     private Animator hand;
     private Transform ball;
-    private int LEFT = 0;
-    private int RIGHT = 1;
     private Vector3 startPos;
     private Vector3 enemyPos;
     

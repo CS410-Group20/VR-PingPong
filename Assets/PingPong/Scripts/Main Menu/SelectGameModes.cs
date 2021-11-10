@@ -73,6 +73,7 @@ public class SelectGameModes : MonoBehaviour
     private IEnumerator OpenScene(string name)
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene("Calibration");
+        PlayerPrefs.SetString("Scene", name);
     }
 }
