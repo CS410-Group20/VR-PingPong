@@ -15,6 +15,9 @@ public class BallController : MonoBehaviour
     [SerializeField] private Transform paddle;
     [SerializeField] private Animator pointsAnimator;
     [SerializeField] private PointsCounter pointsCounter;
+    [SerializeField] private AudioSource hitTable;
+    [SerializeField] private AudioSource hitPaddle;
+    
 
     private Rigidbody rb;
     private Vector3 oldPosition;
@@ -50,6 +53,8 @@ public class BallController : MonoBehaviour
     
     private void FakeBounce()
     {
+        hitTable.Play();
+        
         if (difficulty == 0)
         {
             Vector3 dir = (transform.position - positionAtHit).normalized;
@@ -89,6 +94,8 @@ public class BallController : MonoBehaviour
             if (SceneManager.GetActiveScene().name != "Tutorial")
                 pointsCounter.IncreasePoints();
 
+            hitPaddle.Play();
+            
             hitFromPlayer = true;
         }
         else if (other.transform.CompareTag("Wall"))
@@ -99,6 +106,8 @@ public class BallController : MonoBehaviour
             positionAtHit = transform.position;
 
             hitFromPlayer = false;
+            
+            hitPaddle.Play();
         }
 
         if (other.transform.CompareTag("Bounds"))
